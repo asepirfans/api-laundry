@@ -27,5 +27,4 @@ steps:
             'submission-mgce-asep:us-central1:cloud-run-test',
             '--allow-unauthenticated'
           ]
-  - images:
-      - gcr.io/submission-mgce-asep/api:0.1
+
