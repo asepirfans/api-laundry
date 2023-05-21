@@ -9,7 +9,6 @@ steps:
     args:
       - '-c'
       - |
-        gcloud components install cloud_sql_proxy
         gcloud services enable sqladmin.googleapis.com
         gcloud services enable sql-component.googleapis.com
         gcloud sql instances describe cloud-run-test
@@ -38,12 +37,12 @@ steps:
             'submission-mgce-asep:us-central1:cloud-run-test',
             '--allow-unauthenticated',
             '--update-env-vars',
-            'DB_HOST = 34.122.1.17,
-            DB_DATABASE = smartrinse_db,
-            DB_NAME = root,
-            DB_PASSWORD = awan123,
-            DB_DIALECT = mysql,
-            ACCESS_TOKEN_SECRET = gugYAF653274t3urg4jrbhjq4rvvrwrvw3523952q34ybadsblaslfhdafas2777jdsfjkehf,
-            REFRESH_TOKEN_SECRET = 874UGugusfjkheatsecfugcehfhshfwiepwjef934095uhfdfnsbfeurutg33r80zsdawu7w'            
+            'DB_HOST = 34.122.1.17',
+            'DB_DATABASE = smartrinse_db',
+            'DB_NAME = root',
+            'DB_PASSWORD = awan123',
+            'DB_DIALECT = mysql',
+            'ACCESS_TOKEN_SECRET = gugYAF653274t3urg4jrbhjq4rvvrwrvw3523952q34ybadsblaslfhdafas2777jdsfjkehf',
+            'REFRESH_TOKEN_SECRET = 874UGugusfjkheatsecfugcehfhshfwiepwjef934095uhfdfnsbfeurutg33r80zsdawu7w'
           ]
 

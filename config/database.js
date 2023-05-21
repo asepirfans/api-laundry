@@ -2,10 +2,10 @@ import { Sequelize } from "sequelize";
 import dotenv from "dotenv"
 
 dotenv.config();
-const db = new Sequelize("smartrinse_db","root","awan123",
+const db = new Sequelize(process.env.DB_DATABASE,process.env.DB_NAME,process.env.DB_PASSWORD,
     {
-    host: "34.122.1.17",
-    dialect: 'mysql'
+    host: process.env.DB_HOST,
+    dialect: process.env.DB_DIALECT 
     }
 );
 
