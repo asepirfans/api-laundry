@@ -3,6 +3,26 @@ steps:
     args: ["build", "-t", "gcr.io/submission-mgce-asep/api:old", "."]
   - name: "gcr.io/cloud-builders/docker"
     args: ["push", "gcr.io/submission-mgce-asep/api:old"]
+    # Activate Cloud SQL API and Cloud SQL Admin API
+  - name: 'gcr.io/cloud-builders/gcloud'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        gcloud components install cloud_sql_proxy
+        gcloud services enable sqladmin.googleapis.com
+        gcloud services enable sql-component.googleapis.com
+        gcloud sql instances describe cloud-run-test
+        gcloud sql instances describe cloud-run-test | grep connectionName > /workspace/connection_name.txt
+  
+  # Run Cloud SQL Proxy
+  - name: 'gcr.io/cloud-builders/gcloud'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        ./cloud_sql_proxy -dir=/workspace/cloudsql &
+        sleep 5
   - name: "gcr.io/cloud-builders/gcloud"
     args: ['beta',
             'run',
@@ -15,7 +35,7 @@ steps:
             '--region',
             'us-central1',
             '--add-cloudsql-instances',
-            'submission-mgce-asep:us-central1:cloud-run-test',
+            '$(cat /workspace/connection_name.txt)',
             '--allow-unauthenticated',
             '--update-env-vars',
             'DB_HOST = 34.122.1.17,
