@@ -5,27 +5,27 @@ steps:
     args: ["push", "gcr.io/submission-mgce-asep/api:0.1"]
   - name: "gcr.io/cloud-builders/gcloud"
     args: [
-        "beta",
-        - 'run'
-        - 'deploy'
-        - 'api-test'
-        - '--image'
-        - 'gcr.io/submission-mgce-asep/api:0.1'
-        - '--platform'
-        - 'managed'
-        - '--region'
-        - 'us-central1'
-        - '--update-env-vars'
-        - 'DB_HOST = 34.122.1.17,
-        DB_DATABASE = smartrinse_db,
-        DB_NAME = root,
-        DB_PASSWORD = awan123,
-        DB_DIALECT = mysql,
-        ACCESS_TOKEN_SECRET = gugYAF653274t3urg4jrbhjq4rvvrwrvw3523952q34ybadsblaslfhdafas2777jdsfjkehf,
-        REFRESH_TOKEN_SECRET = 874UGugusfjkheatsecfugcehfhshfwiepwjef934095uhfdfnsbfeurutg33r80zsdawu7w'
-        - '--add-cloudsql-instances'
-        - 'submission-mgce-asep:us-central1:cloud-run-test'
-        - '--allow-unauthenticated',
-      ]
+         'beta',
+            'run'
+            'deploy'
+            'api-test'
+            '--image'
+            'gcr.io/submission-mgce-asep/api:0.1'
+            '--platform'
+            'managed'
+            '--region'
+            'us-central1'
+            '--update-env-vars'
+            'DB_HOST = 34.122.1.17,
+            DB_DATABASE = smartrinse_db,
+            DB_NAME = root,
+            DB_PASSWORD = awan123,
+            DB_DIALECT = mysql,
+            ACCESS_TOKEN_SECRET = gugYAF653274t3urg4jrbhjq4rvvrwrvw3523952q34ybadsblaslfhdafas2777jdsfjkehf,
+            REFRESH_TOKEN_SECRET = 874UGugusfjkheatsecfugcehfhshfwiepwjef934095uhfdfnsbfeurutg33r80zsdawu7w'
+            '--add-cloudsql-instances'
+            'submission-mgce-asep:us-central1:cloud-run-test'
+            '--allow-unauthenticated',
+          ]
   - images:
       - gcr.io/submission-mgce-asep/api:0.1
