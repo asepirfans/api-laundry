@@ -26,6 +26,4 @@ steps:
             ACCESS_TOKEN_SECRET = gugYAF653274t3urg4jrbhjq4rvvrwrvw3523952q34ybadsblaslfhdafas2777jdsfjkehf,
             REFRESH_TOKEN_SECRET = 874UGugusfjkheatsecfugcehfhshfwiepwjef934095uhfdfnsbfeurutg33r80zsdawu7w'            
           ]
-  - images: 
-    'gcr.io/submission-mgce-asep/api:new'
 
