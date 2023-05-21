@@ -13,16 +13,16 @@ steps:
         gcloud services enable sqladmin.googleapis.com
         gcloud services enable sql-component.googleapis.com
         gcloud sql instances describe cloud-run-test
-        gcloud sql instances describe cloud-run-test | grep connectionName > /workspace/connection_name.txt
+
   
-  # Run Cloud SQL Proxy
-  - name: 'gcr.io/cloud-builders/gcloud'
-    entrypoint: 'bash'
-    args:
-      - '-c'
-      - |
-        ./cloud_sql_proxy -dir=/workspace/cloudsql &
-        sleep 5
+  # # Run Cloud SQL Proxy
+  # - name: 'gcr.io/cloud-builders/gcloud'
+  #   entrypoint: 'bash'
+  #   args:
+  #     - '-c'
+  #     - |
+  #       ./cloud_sql_proxy -dir=/workspace/cloudsql &
+  #       sleep 5
   - name: "gcr.io/cloud-builders/gcloud"
     args: ['beta',
             'run',
